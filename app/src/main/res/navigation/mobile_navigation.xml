@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_notes">
+
+    <fragment
+        android:id="@+id/nav_notes"
+        android:name="com.example.notmynote.ui.notes.NotesFragment"
+        android:label="@string/menu_notes"
+        tools:layout="@layout/fragment_my_notes">
+        <action
+            android:id="@+id/action_nav_notes_to_new_entry"
+            app:destination="@id/new_entry" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_archieve"
+        android:name="com.example.notmynote.ui.archive.ArchiveFragment"
+        android:label="@string/menu_archive"
+        tools:layout="@layout/fragment_archieved_notes">
+        <action
+            android:id="@+id/action_nav_archieve_to_new_entry"
+            app:destination="@id/new_entry" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_trash"
+        android:name="com.example.notmynote.ui.deleted.DeletedFragment"
+        android:label="@string/menu_trash"
+        tools:layout="@layout/fragment_deleted_notes" />
+    <fragment
+        android:id="@+id/new_entry"
+        android:name="com.example.notmynote.ui.newNote.AddEditNoteFragment"
+        android:label="@string/newEntry"
+        tools:layout="@layout/fragment_deleted_notes">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="content"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <argument
+            android:name="update"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="fromArcheive"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+</navigation>
